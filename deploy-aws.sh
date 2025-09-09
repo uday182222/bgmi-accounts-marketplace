@@ -33,7 +33,6 @@ print_error() {
 AWS_REGION="us-east-1"
 ENVIRONMENT="production"
 APP_NAME="bgmi-marketplace"
-ECR_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${APP_NAME}"
 
 # Check prerequisites
 check_prerequisites() {
@@ -60,6 +59,9 @@ check_prerequisites() {
     # Get AWS Account ID
     AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
     print_success "AWS Account ID: $AWS_ACCOUNT_ID"
+    
+    # Set ECR repository URL
+    ECR_REPOSITORY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${APP_NAME}"
     
     print_success "All prerequisites met!"
 }
