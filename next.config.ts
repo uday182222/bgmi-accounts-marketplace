@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // Remove static export for AWS Amplify
+  // output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true
