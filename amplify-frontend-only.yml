@@ -3,10 +3,9 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Installing dependencies..."
-        - npm ci
-        - echo "Removing backend code from build..."
-        - rm -rf backend/
+        - echo "Installing frontend dependencies only..."
+        - npm ci --only=production
+        - echo "Skipping backend dependencies..."
     build:
       commands:
         - echo "Building frontend only..."
